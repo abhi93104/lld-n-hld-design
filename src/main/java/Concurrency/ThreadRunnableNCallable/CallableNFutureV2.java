@@ -1,4 +1,4 @@
-package Concurrency;
+package Concurrency.ThreadRunnableNCallable;
 
 import java.util.*;
 import java.util.concurrent.*;

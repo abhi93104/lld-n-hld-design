@@ -149,6 +149,11 @@ public class JavaBasicPractice {
 
         ImmutablePair<Integer, Integer> imPair = new ImmutablePair<>(99, 100);
         System.out.println(imPair.getLeft() + ":" +  imPair.getRight());
+        long a=1;
+        long b = 9;
+        List<Long> l = new ArrayList<>();
+        l.sort((o1, o2) -> o1 > o2 ? -1 : 1);
 
     }
+
 }

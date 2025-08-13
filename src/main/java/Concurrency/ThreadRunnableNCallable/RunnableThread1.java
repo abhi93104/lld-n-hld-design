@@ -1,4 +1,4 @@
-package Concurrency;
+package Concurrency.ThreadRunnableNCallable;
 
 public class RunnableThread1 implements Runnable {
     @Override

@@ -19,7 +19,7 @@ public class Demo {
                 case 1 -> bp = new TomatoToppingDecorator(bp);
                 case 2 -> bp = new OnionToppingDecorator(bp);
                 case 3 -> bp = new JalapenoToppingDecorator(bp);
-                case 4 -> bp = new MushroomToppingDecorator(bp);
+                case 4 -> bp = new MushroomToppingDecorator(bp);    
                 case 5 -> bp = new ExtraCheeseDecorator(bp);
                 case 6 -> preparePizza = true;
                 default -> System.out.println("Invalid option. Choose from above options");

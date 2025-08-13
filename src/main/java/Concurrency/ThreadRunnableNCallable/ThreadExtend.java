@@ -1,13 +1,14 @@
-package Concurrency;
+package Concurrency.ThreadRunnableNCallable;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class RunnableThreadV2 implements Runnable{
+public class ThreadExtend  extends  Thread{
 
-    int a=0;
+    int a = 0;
+
     @Override
-    public void run() {
+    public void run(){
         System.out.println(new Date() + " Starting new Thread - " + Thread.currentThread().getName());
 
         try {
@@ -16,22 +17,22 @@ public class RunnableThreadV2 implements Runnable{
             throw new RuntimeException(e);
         }
         a+=1;
-        System.out.println(new Date() + " a = " + a +  " Finishing Thread - " + Thread.currentThread().getName());
+        System.out.println(new Date() + " a = " + a + " Finishing Thread - " + Thread.currentThread().getName());
     }
+
 
     public static void main(String args[]){
         int numOfThread = 10;
         ArrayList<Thread> thList = new ArrayList<>();
-        Runnable r = new RunnableThreadV2(); // Single runnable share same object
+
         for(int i = 0; i < numOfThread; i++){
-//            Runnable r = new Concurrency.RunnableThreadV2(); // Each thread with each runnable will not share same object
-            thList.add(new Thread(r));
+            ThreadExtend th = new ThreadExtend();
+            thList.add(th);
         }
 
         for(int i = 0; i < numOfThread; i++){
             thList.get(i).start();
         }
-
     }
 
 }

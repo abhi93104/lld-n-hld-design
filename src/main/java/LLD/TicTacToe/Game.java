@@ -150,14 +150,16 @@ public class Game {
             int time = Constants.TIMER;
             while(time > 0) {
                 try {
-                    System.out.printf("%d time left.\n", time);
+                    System.out.printf("\t\t\t\t\t\t\t\t\t\t%d time left.\n", time);
                     Thread.sleep(10000);
                     time -= 10;
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    break;
                 }
             }
-            System.out.println("Time up!!");
+            if(time < 0) {
+                System.out.println("Time up!!");
+            }
         });
         timer.start();
         return timer;
@@ -193,27 +195,22 @@ public class Game {
     public Move playerInput(Player player, Thread timer){
         System.out.printf("PlayerId: %s\nPlayer Name: %s. Select row and columns on the board to make a move.%n", player.getPlayerId(), player.getName());
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter row and column\n");
-        int row = sc.nextInt();
-        int col = sc.nextInt();
+        int row, col;
+        row = col = -1;
+        int retry = 3;
+        while(retry >0) {
+            System.out.print("Enter row and column\n");
+            try {
+                row = sc.nextInt();
+                col = sc.nextInt();
+                break;
+            } catch (InputMismatchException ime) {
+                retry--;
+                System.out.print("Invalid input. Try again\n");
+            }
+        }
+
         return new Move(row, col, player);
 
     }
-
-
-
-    // TODO: Create UML diagram
-    // TODO: Implement timer feature
-    // TODO: Create test cases
-    // TODO: Upload to github
-    public static void main(String[] args) throws TicTacToeException {
-
-        Game game = new Game(4);
-        game.addPlayers(new Player("Abhishek", Symbol.O));
-        game.addPlayers(new Player("Honey", Symbol.X));
-        game.addPlayers(new Player("Shubham", Symbol.A));
-        game.startGame();
-        game.resetGame();
-    }
-
 }
