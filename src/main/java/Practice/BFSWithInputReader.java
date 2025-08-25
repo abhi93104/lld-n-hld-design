@@ -10,7 +10,7 @@ import java.util.*;
  * The Main class implements an application that reads lines from the standard input
  * and prints them to the standard output.
  */
-public class Main {
+public class BFSWithInputReader {
 
     public static final String RETURN_TRUE = "True";
     public static final String RETURN_FALSE = "False";
